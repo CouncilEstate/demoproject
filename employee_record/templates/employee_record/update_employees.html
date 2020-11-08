@@ -1,5 +1,50 @@
 {% extends "employee_record/base.html" %}
+{% load crispy_forms_tags %}
 
-{% block content %}  
-{{form}}
+
+{% block content %} 
+<form action="" method="POST" autocomplete="off">
+    {% csrf_token%}
+    <div class="row">
+        <div class="col-md-4">
+            {{form.employee_ID|as_crispy_field}}
+        </div>
+        <div class="col-md-7">
+            {{form.department|as_crispy_field}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            {{form.firstname|as_crispy_field}}
+        </div>
+        <div class="col-md-5">
+            {{form.lastname|as_crispy_field}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            {{form.telephone|as_crispy_field}}
+        </div>
+        <div class="col-md-5">
+            {{form.mobile|as_crispy_field}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            {{form.emergency|as_crispy_field}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            {{form.email|as_crispy_field}}
+        </div>
+    </div>
+ 
+    
+    {{form.address|as_crispy_field}}
+    {{form.photo|as_crispy_field}}
+    
+    <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Save To Databse</button>
+</form>
 {% endblock content %}
+
