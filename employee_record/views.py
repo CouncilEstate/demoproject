@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect
 from .forms import EmployeeForm
 from .models import Employees
+from django.shortcuts import render
 
 # Create your views here.
 
 
 def view_employees(request):
     context = {
-        'obj': Employees.objects.all()
-        }
-    return render(request, "employee_record/view_employees.html", context)
+        'obj': Employees.objects.all()}
+    return render(request, "employee_record/view_employees.html", {"obj": context})
 
 
 def update_employees(request):
@@ -23,8 +23,3 @@ def update_employees(request):
         return redirect('/employee/list')    
 
 
-def remove_employees(request):
-    employee = Employee.objects.get(pk=id)
-    employee.delete()
-    return redirect('/employee/list')
-    
