@@ -5,10 +5,33 @@
 <table class="table borderless">
     <thead class="border-bottom font-weight bold">
         <tr>
-            <td>First name</td>
+            <th>Employee ID</th>
+            <th>Department</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Employee Photo</th>
         </tr>
-
     </thead>
+        <tbody>
+            {% for obj in view_employee %}
+            <tr>
+              <td>{{obj.employee_ID}}</td>  
+              <td>{{obj.department}}</td> 
+              <td>{{obj.firstname}}</td>
+              <td>{{obj.lastname}}</td>
+              <td>{{obj.telephone}}</td>
+              <td>{{obj.mobile}}</td>
+              <td>{{obj.address}}</td>
+              <td>{{obj.photo}}</td>  
+              <td>{{obj.email}}</td>      
+            </tr>
+            {% endfor %} 
+        </tbody>
 </table>
 
-{% endblock content %}
+
+
+{% endblock %}

@@ -17,5 +17,10 @@ class Employees(models.Model):
     mobile = models.IntegerField()
     emergency = models.IntegerField(blank=True)
     address = models.CharField(max_length=100)
-    photo = models.ImageField(null=True, upload_to='images/')
+    photo = models.ImageField(null=True, blank=True, upload_to='images/')
     email = models.EmailField(max_length=254, default="Work Email")
+
+    objects = models.Manager()
+
+class Meta:
+    db_table = "employeedb"
